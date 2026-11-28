@@ -10,14 +10,9 @@ const short=f=>f.id==='sixth'?'여섯째 손':f.name.split(' ')[0];
 const card=id=>'images/characters/cards/'+id+'.webp',full=id=>'images/characters/full/'+id+'.webp';
 function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('on'),1800)}
 
-/* gate intro: once per session */
-const gate=$('#gate-intro');
-if(reduce||sessionStorage.getItem('evyGate')){gate.classList.add('gone')}
-else{sessionStorage.setItem('evyGate','1');setTimeout(()=>gate.classList.add('open'),350);setTimeout(()=>gate.classList.add('gone'),2000)}
-
 /* theme */
 const tb=$('#theme-btn');
-function setTheme(t){document.documentElement.dataset.theme=t;tb.textContent=t==='day'?'☀':'☾';tb.setAttribute('aria-label',t==='day'?'어두운 화면으로 바꾸기':'밝은 화면으로 바꾸기');try{localStorage.setItem('evyTheme',t)}catch(e){}}
+function setTheme(t){document.documentElement.dataset.theme=t;tb.setAttribute('aria-pressed',String(t==='day'));tb.setAttribute('aria-label',t==='day'?'어두운 화면으로 바꾸기':'밝은 화면으로 바꾸기');try{localStorage.setItem('evyTheme',t)}catch(e){}}
 setTheme((()=>{try{return localStorage.getItem('evyTheme')}catch(e){}})()||'night');
 tb.onclick=()=>setTheme(document.documentElement.dataset.theme==='day'?'night':'day');
 
@@ -28,37 +23,17 @@ $$('a',nl).forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('open'
 const secs=$$('main section[id]'),links=$$('a',nl),bars=$$('.progress i');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
 secs.forEach(s=>io.observe(s));
-/* reveal */
-const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.08});
-$$('.page').forEach(p=>{p.classList.add('reveal');rv.observe(p)});
-/* scroll: progress + hero zoom */
-const hero=$('#hero');let ticking=false;
-function onScroll(){ticking=false;const h=document.documentElement,max=h.scrollHeight-innerHeight,p=max>0?scrollY/max:0;
-  bars.forEach((b,i)=>b.classList.toggle('lit',p>=i/7+.01));
-  if(!reduce){const k=Math.min(1,scrollY/Math.max(1,hero.offsetHeight));hero.style.setProperty('--hs',k)}}
-addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
-
 /* D-day (KST) */
 (function(){const now=new Date(),kst=new Date(now.getTime()+(now.getTimezoneOffset()+540)*60000);
   const t=Date.UTC(2026,11,31),d=Math.ceil((t-Date.UTC(kst.getFullYear(),kst.getMonth(),kst.getDate()))/864e5);
   $('#dday').textContent=d>0?'D-'+d:d===0?'D-DAY':'열림';})();
 
-/* embers */
-(function(){const cv=$('#embers');if(reduce||!cv.getContext)return;const cx=cv.getContext('2d');let w,h,ps=[];
-  function size(){const dpr=Math.min(2,devicePixelRatio||1);w=innerWidth;h=innerHeight;cv.width=w*dpr;cv.height=h*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
-    const n=w<600?18:36;ps=Array.from({length:n},()=>mk(true))}
-  function mk(r){return{x:Math.random()*w,y:r?Math.random()*h:h+10,v:.2+Math.random()*.5,s:1+Math.random()*2.2,a:.15+Math.random()*.4,d:Math.random()*6}}
-  let on=true;document.addEventListener('visibilitychange',()=>{on=!document.hidden;if(on)requestAnimationFrame(loop)});
-  function loop(t){if(!on)return;cx.clearRect(0,0,w,h);for(const p of ps){p.y-=p.v;p.x+=Math.sin(t/1400+p.d)*.25;if(p.y<-10)Object.assign(p,mk(false));
-    cx.beginPath();cx.fillStyle='rgba(240,190,110,'+p.a+')';cx.arc(p.x,p.y,p.s,0,7);cx.fill()}requestAnimationFrame(loop)}
-  addEventListener('resize',size);size();requestAnimationFrame(loop)})();
-
 /* map */
 const map=$('#map'),mc=$('#map-card');
 X.spots.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='spot';b.style.left=s.x+'%';b.style.top=s.y+'%';
-  b.innerHTML='<i></i><span>'+esc(s.name)+'</span>';b.setAttribute('aria-label',s.name);b.onclick=()=>showSpot(i);map.appendChild(b)});
+  b.innerHTML='<i></i>';b.setAttribute('aria-label',s.name);b.onclick=()=>showSpot(i);map.appendChild(b)});
 function showSpot(i){const s=X.spots[i],f=facById[s.fac];$$('.spot',map).forEach((b,j)=>b.classList.toggle('on',i===j));
-  mc.innerHTML='<h3>'+esc(s.name)+'</h3><p>'+esc(s.line)+'</p><p class="owner">'+(s.fac==='caligo'?'문 너머: ':'쥔 세력: ')+esc(f.name)+(f.rank?' · '+esc(f.rank):'')+'</p><button type="button" class="btn gold">'+esc(f.name)+' 보기</button>';
+  mc.innerHTML='<h3>'+esc(s.name)+'</h3><p>'+esc(s.line)+'</p><p class="owner">'+(s.fac==='caligo'?'문 너머: ':'세력: ')+esc(f.name)+(f.rank?' · '+esc(f.rank):'')+'</p><button type="button" class="btn gold">'+esc(f.name)+' 보기</button>';
   $('.btn',mc).onclick=()=>{selectFac(s.fac);$('#factions').scrollIntoView({behavior:reduce?'auto':'smooth'})}}
 showSpot(0);
 
@@ -96,11 +71,11 @@ tl(0);
 
 /* factions */
 const ft=$('#fac-tabs'),fp=$('#fac-panel');
-ft.innerHTML=E.factions.map((f,i)=>(i===5?'<span class="sep"></span>':'')+'<button type="button" role="tab" data-f="'+f.id+'" aria-selected="false">'+esc(f.rank?f.rank+' ':'')+esc(short(f))+'</button>').join('');
+ft.innerHTML=E.factions.map(f=>'<button type="button" role="tab" data-f="'+f.id+'" aria-selected="false"><img alt="" src="images/deco/emblem-'+f.id+'.webp"><span>'+esc(f.name)+'</span><small>'+esc(f.rank||'')+'</small></button>').join('');
 ft.onclick=e=>{const b=e.target.closest('button');if(b)selectFac(b.dataset.f)};
 function selectFac(id){const f=facById[id];$$('button',ft).forEach(b=>b.setAttribute('aria-selected',b.dataset.f===id));
   const mem=E.characters.filter(c=>c.faction===id),canStart=!!X.scenes[id];
-  fp.innerHTML='<div class="fac-img"><img src="'+esc(f.img)+'" alt="'+esc(f.name)+' 배경" loading="lazy">'+(f.rank?'<span class="rank">'+esc(f.rank)+'</span>':'')+'</div>'+
+  fp.innerHTML='<div class="fac-img"><img src="'+esc(f.img)+'" alt="'+esc(f.name)+' 배경" loading="lazy">'+'</div>'+
   '<div><h3>'+esc(f.name)+'</h3><p class="home">'+esc(f.home||'')+'</p><p>'+esc(f.blurb||'')+'</p><dl>'+
   (f.plus?'<dt>좋은 점</dt><dd>'+esc(f.plus)+'</dd>':'')+(f.minus?'<dt>조심할 점</dt><dd>'+esc(f.minus)+'</dd>':'')+(f.shard?'<dt>조각</dt><dd>'+esc(f.shard)+' 조각</dd>':'')+'<dt>인물</dt><dd>'+mem.length+'명</dd></dl>'+
   '<div class="faces">'+mem.map(c=>'<button type="button" data-c="'+c.id+'" title="'+esc(c.name)+'" aria-label="'+esc(c.name)+' 보기"><img src="'+card(c.id)+'" alt="" loading="lazy"></button>').join('')+'</div>'+
