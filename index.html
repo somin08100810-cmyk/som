@@ -1,221 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
-    <title>가제 대형시뮬레이터 · 에스테라에서 보내는 첫해</title>
-    <meta property="og:image" content="./images/og.jpg" />
-    <link rel="icon" href="./favicon.svg" />
-    <script type="module" crossorigin src="./assets/index-CgUwBy3M.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B22gAhmK.css">
-  </head>
-  <body>
-    <header class="gnb">
-      <a class="logo"><i></i>가제 대형시뮬레이터</a>
-      <nav>
-        <a class="on">처음</a><a>세계관</a><a>세력 소개</a><a>인물 도감</a><a>연표</a
-        ><a>결말</a><a>시작 안내</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가제 대형시뮬레이터</title>
+  <meta name="description" content="이세계 대형 시뮬레이션. 등장인물 52명, 붉은 달까지 1년. 누구 편에 설지는 당신이 정해요.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600;700;800&family=Noto+Serif+KR:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip" href="#intro">본문으로</a>
+  <div class="site-bg" aria-hidden="true"><img src="images/e8/pano.webp" alt=""></div>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#hero"><span class="brand-mark" aria-hidden="true"></span>가제 대형시뮬레이터</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" id="nav-toggle">메뉴</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="#intro">시작</a>
+        <a href="#world">세계관</a>
+        <a href="#guide">시작 안내</a>
+        <a href="#year">연표</a>
+        <a href="#factions">세력</a>
+        <a href="#characters">인물</a>
+        <span class="nav-soon">본편 열기 공개 예정</span>
       </nav>
-      <div class="r">
-        <div class="sns">
-          <span>X</span><span>YouTube</span><span>Discord</span>
-        </div>
-        <a class="cta">본편 열기 <small>공개 예정</small></a>
-      </div>
     </header>
-    <main class="page-scroll">
-    <section class="hero" id="top">
-      <div class="kv"></div>
-      <div class="rail">
-        <span class="on"></span><span></span><span></span><span></span
-        ><span></span>
-      </div>
-      <div class="copy">
-        <div class="kicker">1월 1일 · 에스테라 왕국</div>
-        <h1 class="title">다섯 세력 중<br />어디서 <em>시작할까?</em></h1>
-        <p class="lede">당신은 이름과 능력을 직접 정해 왕국의 한 세력에 합류하는 신입입니다. 올해 마지막 밤, 북쪽의 칼리고 문이 열리면 마군이 건너옵니다.</p>
-        <p class="lede">어떤 의뢰를 맡고 누구와 손잡을지 정하세요. 동료들과 흩어진 봉인 조각을 모아 침공에 대비하는 1년입니다.</p>
-        <div class="btns">
-          <a class="b1">내 시작 세력 찾기</a
-          ><a class="b2"
-            ><span class="play"></span>소개 영상
-            <span class="pend">공개 예정</span></a
-          >
+
+    <section id="hero">
+      <div class="hero-art"><img src="images/e8/title.webp" alt="솔레인 성기사단 단장 하엘이 노을 진 전장 앞에 서 있는 모습"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">이세계 대형 시뮬레이션 · 등장인물 52명 · 1년</p>
+        <div class="ch-div" style="margin-bottom:10px">✦ ━━━ ❖ ━━━ ✦</div>
+        <h1>가제 대형시뮬레이터</h1>
+        <p class="lead">붉은 달까지 1년. 누구 편에 설지는 당신이 정해요.</p>
+        <p class="body">1월 1일, 당신은 대륙 에스테라에서 눈을 떠요. 12월 31일 밤 북쪽 숲의 돌문이 열리고, 마계 군대가 넘어와요.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#guide">자유 시작</a>
+          <a class="btn btn-ghost" href="#characters">인물 도감</a>
         </div>
-      </div>
-      <div class="dday">
-        <div class="s" style="margin: 0 0 8px">올해 12월 31일까지</div>
-        <div class="n en">D-<b>365</b></div>
-        <div class="s">칼리고 문이 열리는 날</div>
-      </div>
-      <div class="scroll en">아래로</div>
-      <div class="ticker">
-        <span class="tag">공지</span
-        ><span
-          >다섯 가지 첫 장면이 공개됐습니다. 시작 안내에서 비교해 보세요.</span
-        ><span class="d">2026.11.27</span><a class="more">안내 읽기</a>
+        <div class="dday"><span id="dday-num"></span><span>올해 12월 31일까지<br>칼리고 문이 열리는 날</span></div>
+        <div class="notice"><span>공지 다섯 가지 첫 장면이 공개됐습니다. 시작 안내에서 비교해 보세요.</span><span>2026.11.28</span></div>
       </div>
     </section>
-    <section class="sec world" id="world">
-      <div class="bg"></div>
-      <div class="pin" style="left: 880px; top: 330px">
-        <i></i><span>왕도 솔리아</span>
-      </div>
-      <div class="pin" style="left: 1090px; top: 300px">
-        <i></i><span>벨루아 마탑</span>
-      </div>
-      <div class="pin" style="left: 1210px; top: 610px">
-        <i></i><span>카르셀 항</span>
-      </div>
-      <div class="in">
-        <div class="idx"><b>01</b>세계관</div>
-        <h2 class="h2">다섯 세력은 왜<br />해마다 순위를 겨룰까?</h2>
-        <div class="narr"><p>삼백 년 전, 다섯 모험가가 회색 숲의 돌문을 닫고 각자 집단을 세웠습니다. 그들이 나눠 맡은 봉인 도구도 지금의 다섯 세력에 하나씩 남았습니다.</p><p>처음에는 해마다 술자리에서 누가 더 센지 겨뤘습니다. 이제는 그 시합이 세력의 순위와 지원금을 정하는 <em>서열전</em>이 됐습니다.</p><p>올해 우승한 세력은 마군에 맞설 연합을 이끕니다. 다른 세력의 조각을 빌리려면 경기장 밖에서도 동맹을 구해야 합니다.</p></div>
-      </div>
-      <div class="wtabs">
-        <div class="on">
-          <div class="num en">01</div>
-          <div class="t">대륙 에스테라</div>
-          <div class="s">지도에서 만나는 왕도와 국경</div>
-        </div>
-        <div>
-          <div class="num en">02</div>
-          <div class="t">다섯 동료 전설</div>
-          <div class="s">첫 봉인에서 각자 맡았던 일</div>
-        </div>
-        <div>
-          <div class="num en">03</div>
-          <div class="t">칼리고 문</div>
-          <div class="s">숲의 마수가 늘어난 이유</div>
-        </div>
-        <div>
-          <div class="num en">04</div>
-          <div class="t">달의 심지</div>
-          <div class="s">소원의 크기에 따라 달라지는 봉인</div>
+
+    <section class="chapter" id="intro">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제1장 ✦</div>
+          <h2>당신에게 일어난 일</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">이 네 칸이면 시작할 수 있어요</p>
+        </header>
+        <p class="lead-block">1월 1일, 당신은 대륙 에스테라에서 눈을 떠요. 12월 31일 밤 북쪽 숲의 돌문이 열리고, 마계 군대가 넘어와요.</p>
+        <p class="muted">300년 전 일이라 다들 동화로만 알아요.</p>
+        <div class="grid-4" id="role-grid">
+          <article class="tile"><h3>❖ 당신은</h3><p>다른 세계에서 넘어왔어도, 이 대륙 사람이어도 돼요. 이름, 나이(20세 이상), 능력은 직접 정해요.</p></article>
+          <article class="tile"><h3>❖ 지금 상황</h3><p>왕은 힘이 약하고, 다섯 세력이 나라를 나눠 쥐고 있어요. 순위는 매년 7월 서열전으로 정해요.</p></article>
+          <article class="tile"><h3>❖ 할 수 있는 것</h3><p>공을 세우고, 다른 세력 인물을 데려오고, 봉인 조각을 모으고, 마음에 드는 사람과 사귀어요.</p></article>
+          <article class="tile"><h3>❖ 만날 수 있는 사람</h3><p>52명 누구와도 친해질 수 있어요. 인물 도감에서 전신 그림과 소개를 볼 수 있어요.</p></article>
         </div>
       </div>
     </section>
-    <section class="fac" id="factions">
-      <div class="ghost" style="right: 60px; top: 70px">05</div>
-      <div class="idx"><b>02</b>세력 소개</div>
-      <h2 class="h2">어느 세력에서 첫해를 보낼까?</h2>
-      <div class="fwrap">
-        <div class="flist"></div>
-        <div class="fmain">
-          <div class="art"></div>
-          <div class="grad"></div>
-          <img class="char" src="./images/characters/plates/c15.webp" />
-          <div class="txt">
-            <div class="rank en"></div>
-            <h3></h3>
-            <p></p>
-            <div class="spec"></div>
-          </div>
-          <div class="lead">
-            <div>
-              <div class="tl">상단주</div>
-              <div class="nm">마르셀라</div>
-            </div>
-            <a class="link">이 세력의 사정 읽기</a>
-          </div>
+
+    <section class="chapter" id="world">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제2장 ✦</div>
+          <h2>대륙 에스테라</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">왕국 하나, 세력 다섯</p>
+        </header>
+        <figure class="frame"><img src="images/e8/pano.webp" alt="왕도 솔리아와 북쪽 회색 숲이 보이는 대륙 전경"></figure>
+        <p class="cap">가운데 왕도, 왼쪽 호수 위 마탑, 오른쪽 아래 카르셀 항, 위쪽 숲에 문이 있어요.</p>
+        <figure class="frame"><img src="images/e8/gate.webp" alt="붉은 달 아래 서 있는 칼리고 문"></figure>
+        <p class="cap">칼리고 문. 12월 31일 밤에 열리고 7일 뒤 닫혀요.</p>
+        <div id="rules"></div>
+        <figure class="frame"><img src="images/e8/seal.webp" alt="봉인 조각 다섯 개와 달의 심지 등잔"></figure>
+        <p class="cap">왼쪽부터 빛, 식, 사슬, 길, 열쇠. 위는 등잔이에요.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="guide">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제3장 ✦</div>
+          <h2>시작은 자유예요</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">전부 직접 골라요</p>
+        </header>
+        <p id="start-note"></p>
+        <div class="form-box" id="start-form"></div>
+        <div class="guide-list" id="guide-list"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="year">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제4장 ✦</div>
+          <h2>1년의 흐름</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">계절마다 큰일이 있어요</p>
+        </header>
+        <div class="seasons" id="seasons"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="factions">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제5장 ✦</div>
+          <h2>다섯 세력, 그리고 바깥</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">시작할 세력을 골라요. 세력 밖에서 움직이는 셋도 있어요.</p>
+        </header>
+        <div class="fac-tabs" id="fac-tabs"></div>
+        <div class="fac-view" id="fac-view"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="characters">
+      <div class="page">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <header class="ch-head">
+          <div class="ch-kicker">✦ 제6장 ✦</div>
+          <h2>인물 도감 · 52명</h2>
+          <p class="ch-div">━━ ❖ ━━</p>
+          <p class="ch-sub">세력으로 골라 보고, 카드를 눌러 전신과 소개를 열어요.</p>
+        </header>
+        <div class="char-layout">
+          <div class="char-art" id="char-art"></div>
+          <div class="char-info" id="char-info"></div>
         </div>
+        <div class="filter" id="char-filter" style="margin-top:28px"></div>
+        <div class="cards" id="char-cards"></div>
       </div>
     </section>
-    <section class="sec chars" id="characters">
-      
-      <figure class="cast-plate plate"><img class="stand" src="./images/characters/plates/c15.webp" /></figure>
-      <div class="cast-head">
-        <div class="idx"><b>03</b>인물 도감</div>
-        <div class="ftabs">
-          <span>전체</span><span>솔레인</span><span>벨루아</span
-          ><span class="on">카르셀</span><span>로반</span><span>에델</span
-          ><span>마군</span><span>여섯째 손</span><span>자유인</span>
-        </div>
-      </div>
-      <div class="in">
-        <div class="cname"></div>
-        <div class="crole"></div>
-        <div class="cquote"></div>
-        <div class="cdesc"></div>
-        <div class="cmeta"></div>
-      </div>
-      <div class="roster">
-        <div class="h"><span>카르셀 상단</span><span>7명</span></div>
-        <div class="g"></div>
-        <div class="cnt">도감 열람</div>
-      </div>
-      <div class="cnav">
-        <span class="a">←</span><span class="a">→</span
-        ><span class="p en"><b>15</b> / 52</span>
-      </div>
-    </section>
-    <section id="timeline" class="tl">
-      <div class="head">
-        <div>
-          <div class="idx"><b>04</b>연표</div>
-          <h2 class="h2">첫 의뢰에서 겨울의 국경 방어까지</h2>
-        </div>
-        <a class="link">계절별 사건 펼치기</a>
-      </div>
-      <div class="ruler">
-        <div class="on">1월</div>
-        <div>2월</div>
-        <div>3월</div>
-        <div>4월</div>
-        <div>5월</div>
-        <div>6월</div>
-        <div>7월</div>
-        <div>8월</div>
-        <div>9월</div>
-        <div>10월</div>
-        <div>11월</div>
-        <div class="end">12월</div>
-      </div>
-      <div class="seasons"></div>
-    </section>
-    <section id="routes" class="end">
-      <div class="ghost" style="right: 60px; top: 80px">08</div>
-      <div class="idx"><b>05</b>결말</div>
-      <h2 class="h2">선택에 따라 달라지는 여덟 결말</h2>
-      <p style="margin-top: 14px; color: var(--mute)">
-        이름을 누르면 어떤 선택과 관련된 결말인지 한 줄로 볼 수 있습니다.
-      </p>
-      <div class="erow"></div>
-    </section>
-    <section class="band" id="quiz">
-      <div class="bg"></div>
-      <div class="in">
-        <div class="kicker en">시작 세력 추천</div>
-        <h2 class="h2" style="font-size: 56px">
-          첫날 맡고 싶은 일로<br />소속을 골라 보세요
-        </h2>
-        <div class="btns">
-          <a class="b1">다섯 질문에 답하기</a
-          ><a class="b2">본편 접속 <span class="pend">공개 예정</span></a>
-        </div>
-      </div>
-    </section>
-    <footer class="foot" id="footer">
-      <div class="row">
-        <span class="lg">가제 대형시뮬레이터</span><a>이용약관</a
-        ><a>개인정보처리방침</a><a>문의</a>
-      </div>
-      <div class="legal">
-        에스테라의 지명과 단체, 등장인물은 이 작품을 위해 만든 설정입니다.<br />©
-        2026 뉴미. <time datetime="2026-11-27">2026.11.27</time>
-      </div>
-      <div class="rate">
-        <span>작품 소개 · 전체이용가</span><span>케이브덕</span>
-      </div>
+
+
+    <footer class="foot">
+      <span class="wax-seal">봉인</span>
+      <div class="evy">EVY</div>
+      <small>가제 대형시뮬레이터 · 2026.11.28</small>
     </footer>
-    </main>
-    <dialog>
-      <button class="close" autofocus>창 닫기 ×</button>
-      <article></article>
-    </dialog>
-    <div id="toast" role="status"></div>
-  </body>
+  </div>
+
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="modal-title"></h3>
+        <button class="modal-close" type="button" id="modal-close">창 닫기</button>
+      </div>
+      <div class="modal-grid" id="modal-body"></div>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
 </html>
